@@ -23,3 +23,6 @@ https://image.freepik.com/vecteurs-libre/main-machine-tatouer-element-pour-affic
 Pour la répartition des taches :
 Alexandre Header - main - slider
 Andy menu nav - footer - slider
+------------------------------------------------------------------
+Check de fin 
+Alexandre
