@@ -55,8 +55,47 @@ body > header > .bgTattooH > .logoH > .imgLogoH:hover{
     max-width: 450px;
     text-align: center;
 }
-/*--MAIN--*/
-/*--SLIDER--*/
+/*---NAV---*/
+.main-menu {
+    height:100px ;
+    width: 100%;
+    justify-content: center;
+    background-image: url(./img/cadre-header.png);
+    
+}
+
+.main-menu > ul {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.main-menu > ul > li {
+    font-size: 0.90rem;
+}
+
+.main-menu > ul > li > a {
+    display: block;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px ;
+    padding: 10px;
+    font-size: 0.95rem;
+    background-color: rgba(70, 80, 88, 1);
+	color: rgb(211, 208, 208);
+}
+
+.burger {
+    display: none;
+}
+.show{
+    display: flex !important;
+}
+/*----MAIN----*/
+/*---SLIDER---*/
 .slider{
     position: relative;
     height: 100vh;
@@ -73,21 +112,42 @@ body > header > .bgTattooH > .logoH > .imgLogoH:hover{
     position: absolute;
     top: 50%;
     padding: 5px;
-    background-color: rgb(150, 150, 150, 0.80);
     width: 20px;
     height: 20px;
     text-align: center;
     border-radius: 360px;
     transform: translateY(-50%);
     cursor: pointer;
+    color: white;
+    font-size: 36px;
 }
 .ar-left{
     z-index: 1000;
+    left: 5%;
 }
 .ar-right{
-    right: 0;
+    right: 5%;
 }
-/*------*/
+.row-limit-size-circle{
+    position: absolute;
+    display: flex;
+    bottom: 2%;
+    left: 50%;
+    z-index: 1000;
+    transform: translatex(-50%);
+}
+.circle{
+    width: 20px;
+    height: 20px;
+    border-radius: 340px;
+    border: 1px solid #FFF;
+    margin: 10px;
+    background-color: #201F1F;
+}
+.active{
+    background-color: #727272;
+}
+/*---Présentation---*/
 .presentation{
     height: 100vh;
     display: flex;
@@ -171,6 +231,7 @@ body > header > .bgTattooH > .logoH > .imgLogoH:hover{
     -webkit-text-stroke: 1px #FFF;
     transform: translateY(80%);
 }
+/*---Formulaire et Horaire---*/
 .formHoraire{
     display: flex;
     justify-content: space-between;
@@ -310,6 +371,10 @@ footer > .haut > .reseaux > p {
         right: 50%;
         transform: translateX(50%)
     }
+    .main-menu > ul > li {
+        font-size: 0.80rem;
+        margin: 0 5px;
+    }
 }
 @media screen and (max-width: 1300px) {
     .titleH{
@@ -348,6 +413,12 @@ footer > .haut > .reseaux > p {
          width: 150px;
          text-align: center;
      }
+     .main-menu > ul{
+        max-width: 1200px;
+    }
+    .main-menu > ul > li > a {
+        text-align: center;
+    }
 }
 @media screen and (max-width: 800px) {
     .titleH{
@@ -427,6 +498,33 @@ footer > .haut > .reseaux > p {
     footer > .contact {
         font-size: .75rem;
 
+    }
+    .circle{
+        width: 10px;
+        height: 10px;
+        margin: 5px;
+    }
+    .main-menu > ul {
+        display: none;
+        padding-bottom: 5px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .main-menu {
+        height: auto;
+        padding: 10px 0;
+    }
+    
+    .main-menu > ul > li {
+        font-size: 0.2rem;
+        max-width: 300px;
+        margin: 5px;
+    }
+    .burger  {
+        display: block;
+        height: 30px;
+        width: 30px;
+        margin: 0 auto;
     }
 }
 @media screen and (max-width: 500px) {

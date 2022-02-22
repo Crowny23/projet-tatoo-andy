@@ -22,12 +22,32 @@
 
             <p class="sloganH">"Les beaux souvenirs ne meurent jamais"</p>
         </aside>
+        <nav class="main-menu" >
+            <ul id="respons">
+                <li><a href="#">ACCUEIL</a></li>
+                <li><a href="#sliderNav">GALERIE PHOTO</a></li>
+                <li><a href="#equipeNav">NOS TATOUEURS</a></li>
+                <li><a href="#contactHorNav">CONTACT HORAIRE</a></li>
+            </ul>
+            <div class="burger" id="topNav">
+                <picture><img src="./img/icon_menu.png" alt="Icon_menu" width="30px"></picture>
+            </div>
+        </nav>
     </header>
     <main>
         <section id="sliderNav" class="slider">
-            <div id="leftAr" class="arrows ar-left"><</div>
+            <div id="leftAr" class="arrows ar-left">◄</div>
             <article id="slider" class="imgSliderTattoo"><img width="100%" id="imgSlider" src="./img/imageTattoo1.JPG" alt=""></article>
-            <div id="rightAr" class="arrows ar-right">></div>
+            <div class="row-limit-size-circle" id="sizeCircle">
+                <div class="circle active"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+            <div id="rightAr" class="arrows ar-right">►</div>
         </section>
         <section id="equipeNav" class="presentation">
             <article class="textPre">
