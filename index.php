@@ -67,7 +67,57 @@
             </article>
         </section>
         <section id="contactHorNav" class="formHoraire">
-            <form class="formulaire box" action="#" method="POST" enctype="form-data">
+            <?php
+                if(isset($_POST['submit'])){
+                    $to = "tatoo69@tatoo.fr";
+                    $subject = "Demande de contact - ".date("d/m/Y H:i:s");
+                    $tattoo = $_POST['tattoo'];
+                    $nom = $_POST['lastname'];
+                    $prenom = $_POST['firstname'];
+                    $size = $_POST['sizeOfTattoo'];
+                    $email = $_POST['mail'];
+                    $img = $_FILES['imgTattoo']['name'];
+                    // Testons si le fichier a bien été envoyé et s'il n'y a pas d'erreur
+                    if (isset($_FILES['imgTattoo']) AND $_FILES['imgTattoo']['error'] == 0){
+                            // Testons si le fichier n'est pas trop gros
+                            if ($_FILES['imgTattoo']['size'] <= 1000000){
+                                    // Testons si l'extension est autorisée
+                                    $fileInfo = pathinfo($_FILES['imgTattoo']['name']);
+                                    $extension = $fileInfo['extension'];
+                                    $allowedExtensions = ['jpg', 'jpeg', 'gif', 'png', 'JPG', 'JPEG'];
+                                    if (in_array($extension, $allowedExtensions))
+                                    {
+                                        // On peut valider le fichier et le stocker définitivement
+                                        move_uploaded_file($_FILES['imgTattoo']['tmp_name'], './uploads/' . basename($_FILES['imgTattoo']['name']));
+                                        echo "L'envoi a bien été effectué !";
+                                    }else{
+                                        echo 'Votre fichier ne correspond pas au format souhaiter';
+                                    }
+                            }else{
+                                echo 'Votre fichier est trop gros';
+                            }
+                    }else{
+                        echo 'Votre fichier a une erreur';
+                    }
+                    $message = <<<MESSAGE
+                    Bonjour, 
+
+                    Voici une nouvelle demande de contact : 
+
+                    Nom : {$nom} Prenom : {$prenom}
+                     Mail : {$email}
+
+                    Demande : {$tattoo}
+                    DemandeTaille : {$size} cm
+                    Le tatouage : {<img src="./uploads/$img" alt="coucou">}
+                    MESSAGE;
+
+                    mail($to, $subject, $message);
+
+                    echo($message);
+                }
+            ?>
+            <form class="formulaire box" action="#" method="POST" enctype="multipart/form-data">
                 <h3 class="titleF">CONTACT</h3>
                 <label for="lastname">Nom :*</label>
                 <input class="inputF" type="text" name="lastname" id="lastname" required>
